@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <meta charset="UTF-8" />
+
+  <title>Testing m-hello</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <link rel="stylesheet" href="" />
+
+  <style>
+    :root {
+      --passed-color: hsl(120, 100%, 30%);
+      --failed-color: hsl(0 100% 50%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: hsl(0 0% 95%);
+      font-family: "Courier New", Courier, monospace;
+      padding: 2vw;
+    }
+
+    body > header {
+      padding: 1vw;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      column-gap: 1vw;
+    }
+
+    .status {
+      font-weight: bold;
+      font-size: calc(1rem * (32/16));
+    }
+
+    .status.passed {
+      color: var(--passed-color);
+    }
+
+    .status.failed {
+      color: var(--failed-color);
+    }
+
+    main {
+      padding: 1vw;
+    }
+
+    .test {
+      margin-bottom: 2vw;
+      padding: 2vw;
+      border: 1px solid hsl(0 0% 50%);
+      display: flex;
+      flex-direction: column;
+      row-gap: 2vw;
+    }
+
+    .test > section {
+      padding: 2vw;
+      background-color: hsl(0 0% 100%);
+    }
+
+    .test.passed {
+      border: 1px solid var(--passed-color);
+    }
+
+    .test.passed > footer {
+      color: var(--passed-color);
+    }
+
+    .test.failed {
+      border: 1px solid var(--failed-color);
+    }
+
+    .test.failed > footer {
+      color: var(--failed-color);
+    }
+  </style>
+
+  <body>
+    <script type="module" src="hello-test.js"></script>
+  </body>
+</html>
