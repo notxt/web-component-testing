@@ -92,7 +92,7 @@ try {
     {
       name: 'Should Render "Goodbye"',
       fn: shouldRenderGoodbye,
-      constructorArgs: [{ content: "Goodbye" }],
+      constructorArgs: [{ content: "Goodby" }],
     },
     {
       name: 'Should update text to "Clicked" when button is clicked',

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+file=$(cat index.html)
+lynx -stdin --dump <<<"$file"

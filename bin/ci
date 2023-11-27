@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+RESET='\033[0m'
+
+output=$(
+  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+    --headless \
+    --dump-dom \
+    http://localhost:8000/js/hello-test.html
+)
+
+if grep -q "Failed" <<<"$output"; then
+  mkdir -p output
+  echo "$output" >output/out.html
+
+  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+    --headless \
+    --screenshot \
+    http://localhost:8000/js/hello-test.html
+
+  echo -e "${RED}Failed${RESET}"
+  exit 1
+fi
+
+echo -e "${GREEN}Succeeded${RESET}"
+exit 0
